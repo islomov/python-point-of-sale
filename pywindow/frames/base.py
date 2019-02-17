@@ -22,8 +22,11 @@ class BaseFrame(ttk.Frame):
         self.data = dict()
 
     @classmethod
-    def get_instance(cls, title=None):
-        frame = cls(root, title=title)
+    def get_instance(cls, title=None, in_new_screen=False):
+        if in_new_screen:
+            frame = cls(tk.Tk(), title=title)
+        else:
+            frame = cls(root, title=title)
         if frame.is_valid():
             frame.set_styles()
             frame.create_widgets()

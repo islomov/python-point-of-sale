@@ -1,5 +1,6 @@
 from tkinter import messagebox
 
+from forms.checque_form import ChequeForm
 from forms.order_item_form import OrderItemForm
 from pywindow.frames.base import BaseFrame
 from pywindow.utils.position import WinPosition
@@ -36,7 +37,7 @@ class MainForm(BaseFrame):
         has_errors = list()
         staff_name = self.staff_name.text
         customer_id = self.customer_id.text
-        has_errors += [self.staff_name.is_valid, self.customer_id.is_valid]
+        has_errors += [not self.staff_name.is_valid, not self.customer_id.is_valid]
         for order_item in self.__order_items:
             order_item, has_error = order_item.get_data()
             order_items.append(order_item)
@@ -45,7 +46,8 @@ class MainForm(BaseFrame):
             messagebox.showerror('Error', 'There are some errors on filling fields')
         else:
             # TODO: SARDOR, order_items should be passed
-            print('All correct')
+            cheque_form = ChequeForm.get_instance('Cheque', True)
+            cheque_form.show_frame(staff_name=staff_name, customer_id=customer_id, order_items=order_items)
 
     def close(self):
         self.quit()
