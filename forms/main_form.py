@@ -15,7 +15,7 @@ class MainForm(BaseFrame):
     product_adding_button = Button('+', 'add_product', WinPosition(190, 200), width=60, height=30)
     product_name_label = Label('Product Name', WinPosition(30, 245, 120, 30))
     product_code_label = Label('Product Code', WinPosition(190, 245, 120, 30))
-    price_label = Label('Price', WinPosition(350, 245, 120, 30))
+    price_label = Label('Price($)', WinPosition(350, 245, 120, 30))
     quantity_label = Label('Quantity', WinPosition(510, 245, 120, 30))
     points_label = Label('Points', WinPosition(665, 245, 120, 30))
     print_button = Button('Print', 'print_order', WinPosition(30, 286), width=90, height=30)

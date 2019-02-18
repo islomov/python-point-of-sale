@@ -8,7 +8,7 @@ class OrderItemForm(Container):
     name = TextField(WinPosition(0, 16), required=True, width=120, height=30)
     code = TextField(WinPosition(160, 16), required=True, width=120, height=30)
     price = FloatField(WinPosition(320, 16), required=True, width=120, height=30)
-    quantity = FloatField(WinPosition(480, 16), required=True, width=120, height=30)
+    quantity = IntegerField(WinPosition(480, 16), required=True, width=120, height=30)
     points = IntegerField(WinPosition(634, 16), required=True, width=120, height=30)
 
     class Meta:

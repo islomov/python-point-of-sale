@@ -23,3 +23,11 @@ class Label(Widget):
     def set_style(self, widget):
         for key, value in self.style.items():
             widget[key] = value
+
+    def set(self, text):
+        label = getattr(self.frame, self._widget_name)
+        label.config(text=text)
+
+    def change_position(self, x, y):
+        widget: tk.Label = getattr(self.frame, self._widget_name)
+        widget.place(**dict(x=x, y=y))
